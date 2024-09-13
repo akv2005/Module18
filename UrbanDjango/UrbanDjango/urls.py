@@ -14,13 +14,19 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from sys import platform
+
+
 from django.contrib import admin
 from django.urls import path
 from task2.views import class2, func2
-
+from task3.views import main, cart, games
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('class/', class2.as_view()),
     path('func/', func2),
+    path('', main.as_view(template_name='third_task/platform.html')),
+    path('cart/', cart),
+    path('games/', games),
 ]
