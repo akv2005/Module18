@@ -20,13 +20,16 @@ from sys import platform
 from django.contrib import admin
 from django.urls import path
 from task2.views import class2, func2
-from task3.views import main, cart, games
+#from task3.views import main, cart, games
+from task4.views import cart, games, main
+from django.views.generic import TemplateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('class/', class2.as_view()),
     path('func/', func2),
-    path('', main.as_view(template_name='third_task/platform.html')),
+#    path('', main.as_view(template_name='third_task/platform.html')),
+    path('', TemplateView.as_view(template_name='fourth_task/menu.html')),
     path('cart/', cart),
     path('games/', games),
 ]
